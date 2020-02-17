@@ -1,3 +1,429 @@
 /* Use your own code or past solution for Great Idea Web Page CSS here! */
 
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Set every element's box-sizing to border-box */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+/* Copy and paste your work from yesterday here and start to refactor into flexbox */
+
+/*Universal & body styling*/
+.container{
+    margin: 5%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+}
+
+p{
+    line-height: 1.2em;
+}
+
+.white-to-black:hover{
+	background-color: black;
+	color: white;
+}
+
+button{
+	padding: 0.2em 2.5em;
+	font-family: 'Titillium Web', sans-serif;
+	background: white;
+	border: 1px solid black;
+}
+
+.copyright{
+	text-align: center;
+	font-size: .7em;
+}
+
+
+/*navigation*/
+nav{
+    height: 70px;
+    padding: 0 5%;
+    background-color: lightgray;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9999;
+}
+
+.nav-links{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-links a{
+	color: gray;
+    text-decoration: none;
+}
+
+.nav-links a:hover{
+    color: white;
+    font-weight: bold;
+}
+
+/*navigation - tablet*/
+@media(max-width: 800px){
+    nav{
+        height: 120px;
+        flex-flow: column-reverse;
+        justify-content: space-around;
+    }
+    .nav-links{
+        width: 100%;
+    }
+}
+
+/*navigation - mobile*/
+@media(max-width: 500px){
+    nav{
+        height: 500px;
+        position: relative;
+        padding: 0;
+        background-color: white;
+    }
+    .nav-links{
+        height: 80%;
+        flex-flow: column;
+        align-items: center;
+        border-top: 1px solid black;;
+    }
+    .nav-links a{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        padding: 5%;
+        border-bottom: 1px solid black;
+    }
+
+    .nav-links a:hover{
+        font-weight: bold;
+        color: black;
+    }
+}
+
+
+/*header - home*/
+.homepage{
+    height: 90em;
+}
+
+.homepage-header{
+	display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.homepage-header-left{
+	display: flex;
+	flex-flow: column;
+    align-items: center;
+}
+
+.homepage-header-left h1{
+	font-size: 5em;
+	text-align: center;
+	animation-name: flicker;
+	animation-duration: 20s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flicker{
+	0%{
+		color: black;
+	}
+	10%{
+		color: firebrick;
+	}
+	20%{
+		color: darkorange;
+	}
+	30%{
+		color: gold;
+	}
+	40%{
+		color: limegreen;
+	}
+	50{
+		color: turquoise;
+	}
+	60%{
+		color: blue;
+	}
+	70%{
+		color: darkviolet;
+	}
+	80%{
+		color: mediumvioletred;
+	}
+	90%{
+		color: #9F1C6E;
+	}
+	100%{
+		color: #402034;
+	}
+}
+
+.homepage-button.white-to-black{
+	font-size: 1em;
+	transition: .3s;
+}
+
+/*home header - tablet*/
+@media (max-width:800px){
+    .homepage-header{
+        padding-top: 5em;
+    }
+    .homepage-header img{
+        display: none;
+    }
+}
+
+/*home header - mobile*/
+@media (max-width:500px){
+    .homepage{
+        height: 110em;
+    }
+    .homepage-header{
+        padding: 0;
+        margin-top: -5em;
+    }
+    .homepage-header img{
+        display: none;
+    }
+}
+
+
+/*content - home*/
+.homepage-content{
+    height: 40em;
+	display: flex;
+	flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-evenly;
+	border-top: 2px solid darkgray;
+    border-bottom: 2px solid darkgray;
+}
+
+.top-section{
+	width: 48%;
+}
+
+.middle-img{
+	width: 100%;
+	max-height: 15em;
+}
+
+.bottom-section{
+	width: 30%;
+}
+
+/*home content - mobile*/
+@media (max-width:500px){
+    .homepage-content{
+        height: 60em;
+    }
+    .top-section, .bottom-section{
+        width: 100%;
+    }
+}
+
+
+/*header - services page*/
+.services{
+    height: 130%;
+}
+
+.services-header{
+    height: 35em;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-evenly;
+}
+
+.services-header img{
+	width: 100%;
+	max-height: 20em;
+}
+
+.services-header h2{
+	font-size: 2em;
+}
+
+/*services header - tablet*/
+@media(max-width:800px){
+    .services{
+        height: 150%;
+    }
+    .services-header{
+        margin-top: 5em;
+    }
+}
+
+/*services header - mobile*/
+@media(max-width:500px){
+    .services{
+        height: 200%;
+    }
+    .services-header{
+        height: 15%;
+        margin-top: -5em;
+    }
+}
+
+/*content - services page*/
+.services-content{
+    height: 70%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+    align-content: space-evenly;
+	border-bottom: 2px solid black; 
+	border-top: 1px solid black;
+}
+
+.services-content-block{
+    height: 30%;
+    width: 48%;
+	display: flex;
+	flex-flow: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	border: 1px solid black;
+	background: #eeeeee;
+	padding: 2%;
+}
+
+.services-content-block button{
+	font-size: .8em;
+	border-radius: 4px;
+	transition: .3s;
+}
+
+/*services content - tablet*/
+@media(max-width:800px){
+    .services-content-block{
+        height: 30%;
+    }
+}
+
+/*services content - mobile*/
+@media(max-width:500px){
+    .services-content{
+        flex-flow: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .services-content-block{
+        height: 15%;
+        width: 90%;
+    }
+}
+
+
+/*footer - services page*/
+.services-footer{
+    height: 25%;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: space-between;
+}
+
+.services-footer-left{
+    height: 20em;
+    width: 45%;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-evenly;
+	align-items: flex-start;
+}
+
+.services-footer-left ul{
+	list-style: square;
+	margin-left: 1.2em;
+	line-height: 2em;
+}
+
+/*services footer - tablet*/
+@media(max-width: 800px){
+    .services-info-img{
+        display: none;
+    }
+    .services-footer-left{
+        width: 100%;
+    }
+}
+
+/*services footer - mobile*/
+@media(max-width: 500px){
+    .services-footer{
+        height: 10%;
+    }
+}
