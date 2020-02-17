@@ -132,15 +132,11 @@ nav{
 @media(max-width: 800px){
     nav{
         height: 120px;
-        flex-flow: column;
+        flex-flow: column-reverse;
         justify-content: space-around;
-    }
-    .logo{
-        order: -1;
     }
     .nav-links{
         width: 100%;
-        order: 1;
     }
 }
 
@@ -193,7 +189,6 @@ nav{
 .homepage-header-left h1{
 	font-size: 5em;
 	text-align: center;
-	order: 1;
 	animation-name: flicker;
 	animation-duration: 20s;
     animation-iteration-count: infinite;
@@ -237,7 +232,6 @@ nav{
 
 .homepage-button.white-to-black{
 	font-size: 1em;
-	order: 2;
 	transition: .3s;
 }
 
